@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Login Page</title>
+    <title>Admin Login Page</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -54,7 +54,8 @@
                             <span class="fa fa-user-o"></span>
                         </div>
                         <h3 class="text-center mb-4" style="color: green;">Login To Continue</h3>
-                        <form action="{{url('/post_login')}}" class="login-form" method="post">
+
+                        <form action="{{url('/post_admin_form')}}" class="login-form" method="post">
                             @csrf
                             <div class="form-group">
                                 <input type="text" class="form-control rounded-left" placeholder="Email" name="email" required>
@@ -79,6 +80,8 @@
                                 <button type="submit" class="btn btn-primary rounded submit p-3 px-5">Login</button>
                             </div>
                         </form>
+
+
                     </div>
                 </div>
             </div>

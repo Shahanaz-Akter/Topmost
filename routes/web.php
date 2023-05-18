@@ -17,23 +17,13 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::get('/', function () {
-    return view('admin_form');
-});
+Route::get('/', 'Admin\AdminController@login');
+Route::post('/post_admin_form', 'Admin\AdminController@post_admin_form');
 
-Route::get('/index', function () {
-    return view('index');
-});
-Route::get('/why_us', function () {
-    return view('why_us');
-});
+Route::get('/dashboard', 'Admin\AdminController@dashboard');
+Route::post('/post_upload_products', 'Admin\AdminController@post_upload_products');
 
-Route::get('/design_studio', function () {
-    return view('design_studio');
-});
-Route::get('/contact', function () {
-    return view('contact');
-});
-Route::get('/service', function () {
-    return view('service');
-});
+
+Route::get('/index', 'Admin\AdminController@index');
+Route::get('/why_us', 'Admin\AdminController@why_us');
+Route::get('/design_studio', 'Admin\AdminController@design_studio');
