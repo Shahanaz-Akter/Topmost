@@ -17,7 +17,6 @@
     body {
         height: 100vh;
         background-image: url('/images/products.avif');
-        /* background-color:white; */
         background-repeat: no-repeat;
         background-size: cover;
     }

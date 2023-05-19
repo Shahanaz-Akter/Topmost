@@ -3,9 +3,13 @@
 
 <head>
     <title>Product Form</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <!-- uploading form bootstrap -->
-    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> -->
+
+    <!-- bootstrap update version link -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css">
+
+    <!-- fontawewsome update version link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 
 </head>
 
@@ -13,46 +17,56 @@
 
 
     <!-- Show the Products list as Tabular format -->
-    <div class="d-flex justify-content-center align-items-center">
+    <div class="d-flex justify-content-end mb-2">
+        <!-- <div class="" style="padding: 15px 10px;">
+            <button class="btn btn-success mt-2">Admin Dashboard</button>
+        </div> -->
+
         <div class="" style="padding: 15px 10px;">
-            <button class="btn btn-outline-success mt-2" data-bs-toggle="modal" data-bs-target="#uploding_products">Uploading Product</button>
+            <button class="btn btn-success mt-2" data-bs-toggle="modal" data-bs-target="#uploding_products">Uploading Product</button>
+        </div>
+
+        <div class="" style="padding: 15px 20px;">
+            <a href="{{url('/index')}}"><button class="btn btn-success mt-2">Logout</button></a>
         </div>
     </div>
 
 
     <div class="container mt-2">
-
-        <table class="table">
+        <!-- <button class="mb-5 btn btn-outline-success  text-center">
+        </button> -->
+        <table class="table mb-5">
             <thead>
                 <tr>
-                    <th scope="col">image</th>
+                    <th scope="col">#</th>
                     <th scope="col">Name</th>
                     <th scope="col">Price</th>
+                    <th scope="col">Color</th>
+                    <th scope="col">Size</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Primary image</th>
+                    <th scope="col">Secondary image</th>
                     <th scope="col">Description</th>
+                    <th>Edit</th>
+                    <th>Delete</th>
                 </tr>
             </thead>
             <tbody>
 
-                @php
-
-                @endphp
-
 
                 <tr>
-                    <!-- <th scope="row">1</th> -->
-                    <td><img src="assets_topmost/images/all_img/ladies_full_sleeve_topbottom_set/full_sleeve1.png" alt="Product 1" style="height:100%!important;width: 100%!important;">
-                    </td>
-                    <td>Tshirt</td>
-                    <td>$120</td>
-                    <td>The purpose of a product description is to supply customers with
-                        important information
-                        about the features and benefits of the product so they’re compelled
-                        to buy. However,
-                        entrepreneurs and marketers alike are susceptible to a common
-                        mistake that comes up when
-                        writing product descriptions. Even professional copywriters make it
-                        sometimes: writing
-                        product descriptions that simply describe your products.</td>
+                    <th scope="row">1</th>
+                    <td>Shirt</td>
+                    <td>1230</td>
+                    <td>Red</td>
+                    <td>xxL</td>
+                    <td>In stock</td>
+                    <td><img src="/assets_topmost/images/about/about-1.png" alt="" style="height: 100%; width:100%;"></td>
+                    <td><img src="/assets_topmost/images/about/about-1.png" alt="" style="height: 100%; width:100%;"></td>
+                    <td>The purpose of a product description is to supply customers with important information about the features and benefits of the product so they’re compelled to buy. However, entrepreneurs and marketers alike are susceptible to a common mistake that comes up when writing product descriptions. Even professional copywriters make it sometimes: writing product descriptions that simply describe your products.</td>
+
+                    <td> <a href="{{url('/edit_product')}}"><i class="fa-solid fa-pen-to-square ms-2"></i></a> </td>
+                    <td> <a href="{{url('/delete_product')}}"><i class="fa-solid fa-trash-can"></i></a> </td>
                 </tr>
 
 
@@ -64,10 +78,12 @@
     </div>
 
 
-    <!-- start product-details1 Modal -->
+
+
+    <!-- start product-details Modal -->
     <div class="modal fade" id="uploding_products" tabindex="-1" aria-hidden="true">
-        <div class="modal-lg modal-dialog modal-dialog-centered1 modal-simple modal-add-new-cc">
-            <div class="modal-content p-3 p-md-5">
+        <div class="modal-xl modal-dialog modal-dialog-centered1 modal-simple modal-add-new-cc">
+            <div class="modal-content p-3 p-md-5" style="border: 2px solid green; border-radius:30px;">
                 <div class="modal-body">
                     <div class="d-flex justify-content-end">
                         <div class="">
@@ -78,29 +94,68 @@
                     </div>
 
 
-                    <div class="container mt-5">
+                    <div class="container mt-5 row">
 
                         <form action="{{url('/post_upload_products')}}" method="POST" enctype="multipart/form-data">
                             @csrf
 
-                            <div class="form-group text-uppercase mb-5">
-                                <label class="mb-2" for="name">Name </label>
+                            <div class="col-12 col-md-8 col-lg-8  col-xl-8 form-group text-uppercase mb-5">
+                                <label class="mb-2" for="name">Product Name: </label>
                                 <input type="text" class="form-control" id="name" name="name" placeholder="Enter Product Name: " required>
                             </div>
-                            <div class="form-group text-uppercase mb-5">
-                                <label class="mb-2" for="image">Image </label>
-                                <input type="file" class="form-control-file" id="image" name="image" placeholder="Enter Product Image: " required>
+                            <div class="col-12 col-md-8 col-lg-8  col-xl-8 form-group text-uppercase mb-5">
+                                <label class="mb-2" for="price">Product Price: </label>
+                                <input type="text" class="form-control" id="price" name="price" placeholder="Enter Product Price: " required>
                             </div>
-                            <div class="form-group text-uppercase mb-5">
-                                <label class="mb-2" for="price">Price </label>
-                                <input type="text" class="form-control" id="price" name="price" placeholder="Enter Product price: " required>
+                            <div class="col-12 col-md-8 col-lg-8  col-xl-8 form-group text-uppercase mb-5">
+                                <label class="mb-2" for="size">Product Size: </label>
+                                <input type="text" class="form-control" id="size" name="size" placeholder="Enter Product Size: " required>
                             </div>
-                            <div class="form-group text-uppercase mb-5">
+                            <div class="col-12 col-md-8 col-lg-8  col-xl-8 form-group text-uppercase mb-5">
+                                <label class="mb-2" for="color">Product Color:</label>
+                                <input type="text" class="form-control" id="color" name="color" placeholder="Enter Product Size: " required>
+                            </div>
+                            <div class="col-12 col-md-8 col-lg-8  col-xl-8 form-group text-uppercase mb-5">
+                                <label class="mb-2" for="status">Status:</label>
+                                <input type="text" class="form-control" id="status" name="status" placeholder="Enter Product Status: " required>
+                            </div>
+
+
+                            <div class="col-12 col-md-8 col-lg-8  col-xl-8 form-group text-uppercase mb-5">
+                                <label class="form-label">Select Product Status</label>
+                                <select name='product_status' class="form-select">
+                                    <option value="design">Design</option>
+                                    <option value="ready">Ready</option>
+                                </select>
+                            </div>
+
+                            <div class="col-12 col-md-8 col-lg-8  col-xl-8 form-group text-uppercase mb-5">
+                                <label class="mb-2" for="primary_image">primary Product Image</label>
+                                <input type="file" class="form-control-file" id="primary_image" name="primary_image" placeholder="Enter primary Product Image: " required>
+                            </div>
+                            <div class="col-12 col-md-8 col-lg-8  col-xl-8 form-group text-uppercase mb-5">
+                                <label class="mb-2" for="secondary_image1">Secondary Product Image</label>
+                                <input type="file" class="form-control-file" id="secondary_image1" name="secondary_image1" placeholder="Enter SEcondary Product Image: " required>
+
+                            </div>
+                            <div class="col-12 col-md-8 col-lg-8  col-xl-8 form-group text-uppercase mb-5">
+                                <label class="mb-2" for="secondary_image2">Secondary Product Image</label>
+                                <input type="file" class="form-control-file" id="secondary_image2" name="secondary_image2" placeholder="Enter SEcondary Product Image: " required>
+
+                            </div>
+                            <div class="col-12 col-md-8 col-lg-8  col-xl-8 form-group text-uppercase mb-5">
+                                <label class="mb-2" for="secondary_image3">Secondary Product Image</label>
+                                <input type="file" class="form-control-file" id="secondary_image3" name="secondary_image3" placeholder="Enter SEcondary Product Image: " required>
+                                <!-- <div class="plus_btn"><i class="fa-solid fa-plus fs-2"></i></div> -->
+                            </div>
+
+
+                            <div class="col-12 col-md-8 col-lg-8  col-xl-8 form-group text-uppercase mb-5">
                                 <label class="mb-2" for="description">Description </label>
                                 <textarea class="form-control" id="description" name="description" rows="4" placeholder="Enter Product Description: " required></textarea>
                             </div>
 
-                            <button type="submit" class="btn btn-success submit">Submit</button>
+                            <button type="submit" class="btn btn-success btn-lg submit">Submit</button>
                         </form>
 
                     </div>
@@ -109,15 +164,15 @@
             </div>
         </div>
     </div>
-    <!-- end each product-details1 Modal -->
+    <!-- end each product-details Modal -->
 
 
     <!-- Link of JS files -->
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{asset('/assets_topmost/js/custom.js')}}"></script>
 
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
 </body>
 
 </html>
