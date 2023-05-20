@@ -131,13 +131,13 @@
                     <button style="width:50%!important;" type="button" class="readystock  btn btn-outline-success">Ready
                         Stock</button>
                 </div>
-
-
-
-
             </div>
 
 
+
+
+
+            <!-- Design Section  -->
             <div class="section-content" id="designSection">
                 <!-- <p>Design Section</p> -->
 
@@ -180,7 +180,7 @@
                     <div class="col-lg-4 col-md-6 col-sm-6 col-12">
                         <div class="product-card">
                             <div class="product-card-img">
-                                <img class="" src="{{$product->primary_img}}" alt="image" style="height: 100%; width: 100%;">
+                                <img class="" src="{{$product->primary_img}}" alt="image" style="height:100% ; width:auto;">
                             </div>
                             <div class="">
                                 <h4 class="mb-4  mt-2 fw-bold">{{$product->name}}</h4>
@@ -191,7 +191,7 @@
                                         <div>Size: {{$product->size}}</div>
                                         <div>Color: {{$product->color}}</div>
 
-                                        <button class="btn btn-outline-success mt-2" data-bs-toggle="modal" data-bs-target="<?= '#product_modal' . $product->id ?>">Product Details</button>
+                                        <button class="btn btn-outline-success mt-2" data-bs-toggle="modal" data-bs-target="<?= '#design_product' . $product->id ?>">Product Details</button>
 
                                     </div>
                                 </div>
@@ -209,7 +209,7 @@
             @foreach ($design_products as $p)
 
             <!-- start design product-details Modal -->
-            <div class="modal fade" id="<?= 'product_modal' . $p->id ?>" tabindex="-1" aria-hidden="true">
+            <div class="modal fade" id="<?= 'design_product' . $p->id ?>" tabindex="-1" aria-hidden="true">
                 <div class="modal-xl modal-dialog modal-dialog-centered1 modal-simple modal-add-new-cc">
                     <div class="modal-content p-3 p-md-5">
                         <div class="modal-body">
@@ -229,59 +229,40 @@
                                     <div class="product-details-top-area">
                                         <div class="row">
 
-                                            <div class="col-lg-6" style="border: 1px solid red; ">
+                                            <div class="col-lg-6" style="border: 1px solid transparent; ">
 
 
 
-                                                <div id="<?= 'hotash' . $p->id ?>" class="carousel slide" data-bs-ride="carousel">
+                                                <div id="<?= 'design' . $p->id ?>" class="carousel slide" data-bs-ride="carousel">
                                                     <div class="carousel-inner">
                                                         @php
                                                         $sec_p= json_decode($p->secondary_img);
-
                                                         @endphp
+
                                                         <div class="carousel-item active">
 
-                                                            <img class="d-block w-100" src="{{$sec_p[0]}}" alt="First slide" height="200">
+                                                            <img class="d-block w-100" src="{{$sec_p[0]}}" alt="" height="200">
                                                         </div>
 
 
                                                         @foreach ($sec_p as $sec_pro)
-                                                        @if ( $sec_pro!=$sec_p[0])
+
                                                         <div class="carousel-item">
-
-                                                            <img class="d-block w-100" src="{{$sec_pro}}" alt="First slide" height="200">
+                                                            <img class="d-block w-100" src="{{$sec_pro}}" alt="" height="200">
                                                         </div>
-                                                        @endif
-
                                                         @endforeach
+
                                                     </div>
+
                                                     <button style="color: black;" class="carousel-control-prev" type="button" data-bs-target="<?= '#design' . $p->id ?>" data-bs-slide="prev">
                                                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                                         <span class="visually-hidden">Previous</span>
                                                     </button>
+
                                                     <button class="carousel-control-next" type="button" data-bs-target="<?= '#design' . $p->id ?>" data-bs-slide="next">
                                                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                                         <span class="visually-hidden">Next</span>
                                                     </button>
-                                                </div>
-
-
-
-                                                <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                                                    <div class="carousel-inner">
-
-
-
-
-                                                    </div>
-                                                    <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                                                        <span class="sr-only">Previous</span>
-                                                    </a>
-                                                    <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                                                        <span class="sr-only">Next</span>
-                                                    </a>
                                                 </div>
 
                                             </div>
@@ -291,8 +272,8 @@
                                                 <!-- <h5 class="title fw-bold text-center">Product Details Information</h5> -->
                                                 <div class="pd-top-text-area pl-20">
                                                     <div class="default-section-title">
-                                                        <span class="stock-status">In Stock</span>
-                                                        <h3>Man's Original Sweatshirt</h3>
+                                                        <span class="stock-status">{{$p->status}}</span>
+                                                        <h3>{{$p->name}}</h3>
                                                     </div>
                                                     <ul class="stars">
                                                         <li><i class="flaticon-star"></i></li>
@@ -301,15 +282,15 @@
                                                         <li><i class="flaticon-star"></i></li>
                                                         <li><i class="flaticon-star"></i></li>
                                                     </ul>
-                                                    <h4>$160.00</h4>
-                                                    <p>Quantity - 30,000pcs.
-                                                        Color - 12/15.
-                                                        Size - S-3XL.
-                                                        Label - J H K.
-                                                        One side brush fabric.
 
-                                                        With Zipper - 10,000 pcs.
-                                                        Without zipper- 20,000 pcs.</p>
+                                                    <p>
+
+                                                        Color-{{$p->color}},
+                                                        Price-{{$p->price}},
+                                                        Size-{{$p->size}}
+
+                                                    </p>
+
 
                                                 </div>
                                             </div>
@@ -325,23 +306,10 @@
                                         <div class="tab-content" id="nav-tabContent">
                                             <div class="tab-pane fade show active" id="nav-description" role="tabpanel" aria-labelledby="nav-description-tab">
                                                 <div class="pd-description">
-                                                    <p>The purpose of a product description is to supply customers with
-                                                        important information
-                                                        about the features and benefits of the product so they’re compelled
-                                                        to buy. However,
-                                                        entrepreneurs and marketers alike are susceptible to a common
-                                                        mistake that comes up when
-                                                        writing product descriptions. Even professional copywriters make it
-                                                        sometimes: writing
-                                                        product descriptions that simply describe your products.</p>
+                                                    <p>{{$p->description}}</p>
                                                     <ul class="about-list">
-                                                        <li><i class="flaticon-right-arrow"></i> Size <S-3XL></S-3XL>
-                                                        </li>
-                                                        <li><i class="flaticon-right-arrow"></i> Quantity 30,000pcs</li>
-                                                        <li><i class="flaticon-right-arrow"></i> Color 12/15</li>
-                                                        <li><i class="flaticon-right-arrow"></i> Label J H K </li>
-                                                        <li><i class="flaticon-right-arrow"></i> With Zipper 20,000 pcs</li>
-
+                                                        <li><i class="flaticon-right-arrow"></i> Size: {{$p->size}}</li>
+                                                        <li><i class="flaticon-right-arrow"></i> Color: {{$p->color}}</li>
                                                     </ul>
                                                 </div>
                                             </div>
@@ -362,19 +330,31 @@
                                     <div class="section-content">
                                         <div class="row justify-content-center">
 
+                                            @php
+                                            $sec_pr= json_decode($p->secondary_img);
+                                            @endphp
+
+                                            @foreach ($sec_pr as $sec_product)
+
+
                                             <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+
                                                 <div class="product-card">
                                                     <div class="product-card-img">
-                                                        <img src="assets_topmost/images/topmost_recent_imges/Man's_Original _sweatshirt/1.png" alt="image">
+                                                        <img src="{{$sec_product}}" alt="image">
                                                     </div>
                                                     <div class="product-card-text-area">
                                                         <h4>
-                                                            Man's Original Sweatshirt1
+                                                            {{$p->name}}
                                                         </h4>
 
                                                     </div>
                                                 </div>
                                             </div>
+
+                                            @endforeach
+
+
                                         </div>
                                     </div>
                                 </div>
@@ -388,13 +368,7 @@
             <!--design product-details Modal end-->
 
 
-
-
-
-
-
-
-
+            <!-- Ready Section -->
             <div class="section-content d-none" id="readySection">
                 <!-- <p style="background: white;">Ready Section</p> -->
 
@@ -486,7 +460,7 @@
                                     <div class="product-details-top-area">
                                         <div class="row">
 
-                                            <div class="col-lg-6" style="border: 1px solid red;">
+                                            <div class="col-lg-6" style="border: 1px solid transparent;">
 
 
 
@@ -542,13 +516,11 @@
                                                     </ul>
                                                     <h4>{{$p1->price}}</h4>
                                                     <p>
-                                                        Boy's Quantity: 5070 pcs
-                                                        Color:01 & 02
-                                                        Girls Quantity: 8096 set
-                                                        Pink: 4106 set
-                                                        Size- 2/3y to 9/10y
-                                                        Knit single jersey fabric
-                                                        Super Intact goods
+
+                                                        Color: {{$p1->color}}
+                                                        Price: {{$p1->price}}
+                                                        Size: {{$p1->size}}
+
                                                     </p>
 
                                                 </div>
@@ -566,14 +538,12 @@
                                         <div class="tab-content" id="nav-tabContent">
                                             <div class="tab-pane fade show active" id="nav-description" role="tabpanel" aria-labelledby="nav-description-tab">
                                                 <div class="pd-description">
-                                                    <p>{{$p->description}}</p>
+                                                    <p>{{$p1->description}}</p>
                                                     <ul class="about-list">
-                                                        <li><i class="flaticon-right-arrow"></i>Size: {{$p->size}}
+                                                        <li><i class="flaticon-right-arrow"></i>Size: {{$p1->size}}
                                                         </li>
-                                                        <li><i class="flaticon-right-arrow"></i> Quantity 30,000pcs</li>
-                                                        <li><i class="flaticon-right-arrow"></i> Color 12/15</li>
-                                                        <li><i class="flaticon-right-arrow"></i> Label J H K </li>
-                                                        <li><i class="flaticon-right-arrow"></i> With Zipper 20,000 pcs</li>
+                                                        <li><i class="flaticon-right-arrow"></i>Pice: {{$p1->price}}</li>
+                                                        <li><i class="flaticon-right-arrow"></i> Color: {{$p1->color}}</li>
 
                                                     </ul>
                                                 </div>
@@ -595,164 +565,29 @@
                                     <div class="section-content">
                                         <div class="row justify-content-center">
 
+                                            @php
+                                            $sec_pr1= json_decode($p1->secondary_img);
+                                            @endphp
+
+                                            @foreach ($sec_pr1 as $sec_product1)
+                                            @if ($sec_product1!=$sec_pr1[0])
+
                                             <div class="col-lg-4 col-md-6 col-sm-6 col-12">
+
                                                 <div class="product-card">
                                                     <div class="product-card-img">
-                                                        <img src="assets_topmost/images/all_img/ladies_full_sleeve_topbottom_set/full_sleeve1.png" alt="image">
-
+                                                        <img src="{{$sec_product1}}" alt="image">
                                                     </div>
                                                     <div class="product-card-text-area">
                                                         <h4>
-                                                            Boy's & Girl's Top
-                                                            Bottom Set1
+                                                            {{$p1->name}}
                                                         </h4>
 
                                                     </div>
                                                 </div>
                                             </div>
-
-                                            <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-                                                <div class="product-card">
-                                                    <div class="product-card-img">
-                                                        <img src="assets_topmost/images/all_img/ladies_full_sleeve_topbottom_set/full_sleeve2.png" alt="image">
-
-                                                    </div>
-                                                    <div class="product-card-text-area">
-                                                        <h4>
-                                                            Boy's & Girl's Top
-                                                            Bottom Set1
-                                                        </h4>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-                                                <div class="product-card">
-                                                    <div class="product-card-img">
-                                                        <img src="assets_topmost/images/all_img/ladies_full_sleeve_topbottom_set/full_sleeve3.png" alt="image">
-
-                                                    </div>
-                                                    <div class="product-card-text-area">
-                                                        <h4>
-                                                            Boy's & Girl's Top
-                                                            Bottom Set1
-                                                        </h4>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-
-
-
-                                            <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-                                                <div class="product-card">
-                                                    <div class="product-card-img">
-                                                        <img src="assets_topmost/images/all_img/ladies_full_sleeve_topbottom_set/full_sleeve4.png" alt="image">
-
-                                                    </div>
-                                                    <div class="product-card-text-area">
-                                                        <h4>
-                                                            Boy's & Girl's Top
-                                                            Bottom Set1
-                                                        </h4>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-
-
-                                            <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-                                                <div class="product-card">
-                                                    <div class="product-card-img">
-                                                        <img src="assets_topmost/images/all_img/ladies_full_sleeve_topbottom_set/full_sleeve5.png" alt="image">
-
-                                                    </div>
-                                                    <div class="product-card-text-area">
-                                                        <h4>
-                                                            Boy's & Girl's Top
-                                                            Bottom Set1
-                                                        </h4>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-
-
-                                            <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-                                                <div class="product-card">
-                                                    <div class="product-card-img">
-                                                        <img src="assets_topmost/images/all_img/ladies_full_sleeve_topbottom_set/full_sleeve6.png" alt="image">
-
-                                                    </div>
-                                                    <div class="product-card-text-area">
-                                                        <h4>
-                                                            Boy's & Girl's Top
-                                                            Bottom Set1
-                                                        </h4>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-                                                <div class="product-card">
-                                                    <div class="product-card-img">
-                                                        <img src="assets_topmost/images/all_img/ladies_full_sleeve_topbottom_set/full_sleeve7.png" alt="image">
-
-                                                    </div>
-                                                    <div class="product-card-text-area">
-                                                        <h4>
-                                                            Boy's & Girl's Top
-                                                            Bottom Set1
-                                                        </h4>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-                                                <div class="product-card">
-                                                    <div class="product-card-img">
-                                                        <img src="assets_topmost/images/all_img/ladies_full_sleeve_topbottom_set/full_sleeve8.png" alt="image">
-
-                                                    </div>
-                                                    <div class="product-card-text-area">
-                                                        <h4>
-                                                            Boy's & Girl's Top
-                                                            Bottom Set1
-                                                        </h4>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-                                                <div class="product-card">
-                                                    <div class="product-card-img">
-                                                        <img src="assets_topmost/images/all_img/ladies_full_sleeve_topbottom_set/full_sleeve9.png" alt="image">
-
-                                                    </div>
-                                                    <div class="product-card-text-area">
-                                                        <h4>
-                                                            Boy's & Girl's Top
-                                                            Bottom Set1
-                                                        </h4>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-4 col-md-6 col-sm-6 col-12">
-                                                <div class="product-card">
-                                                    <div class="product-card-img">
-                                                        <img src="assets_topmost/images/all_img/ladies_full_sleeve_topbottom_set/full_sleeve10.png" alt="image">
-
-                                                    </div>
-                                                    <div class="product-card-text-area">
-                                                        <h4>
-                                                            Boy's & Girl's Top
-                                                            Bottom Set1
-                                                        </h4>
-
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            @endif
+                                            @endforeach
 
 
                                         </div>
@@ -775,7 +610,7 @@
             <div class="paginations mt-30">
                 <ul>
                     <li><a href="products.html"><span><i class="fas fa-angle-left"></i></span></a></li>
-                    <li class="active"><a href="products.html"><span>1</span></a></li>
+                    <li class="active"><span>1</span></li>
                     <li><a href="products.html"><span>2</span></a></li>
                     <li><a href="products.html"><span>3</span></a></li>
                     <li><a href="products.html"><span><i class="fas fa-angle-right"></i></span></a></li>
@@ -798,9 +633,7 @@
                         <div class="footer-logo-area">
                             <a href="{{url('/index')}}"><img src="assets_topmost/images/white-logo.png" alt="image" style="height: 90px; width: 250px;" /></a>
                             <p>
-                                If you have any questions or concerns, our customer service team is available 24/7
-                                to
-                                assist you.
+                                If you have any questions or concerns, our customer service team is available 24/7 to assist you.
                             </p>
                             <div class="footer-icons-area">
                                 <ul>

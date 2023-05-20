@@ -154,12 +154,15 @@
                                 <label class="mb-2" for="primary_image">primary Product Image</label>
                                 <input type="file" class="form-control-file" id="primary_image" name="primary_image" placeholder="Enter primary Product Image: " required>
                             </div>
+
+                            
                             <div class="col-12 col-md-8 col-lg-8  col-xl-8 form-group text-uppercase mb-5">
-                                <label class="mb-2" for="secondary_image1">Secondary Product Image</label>
-                                <input type="file" class="form-control-file" id="secondary_image1" name="secondary_image1" placeholder="Enter SEcondary Product Image: " required>
+                                <label class="mb-2" for="secondary_image">Secondary Product Image</label>
+                                <input type="file" class="form-control-file" id="secondary_image" name="secondary_image" placeholder="Enter SEcondary Product Image: " required>
 
                             </div>
-                            <div class="col-12 col-md-8 col-lg-8  col-xl-8 form-group text-uppercase mb-5">
+
+                            <!-- <div class="col-12 col-md-8 col-lg-8  col-xl-8 form-group text-uppercase mb-5">
                                 <label class="mb-2" for="secondary_image2">Secondary Product Image</label>
                                 <input type="file" class="form-control-file" id="secondary_image2" name="secondary_image2" placeholder="Enter SEcondary Product Image: " required>
 
@@ -167,9 +170,10 @@
                             <div class="col-12 col-md-8 col-lg-8  col-xl-8 form-group text-uppercase mb-5">
                                 <label class="mb-2" for="secondary_image3">Secondary Product Image</label>
                                 <input type="file" class="form-control-file" id="secondary_image3" name="secondary_image3" placeholder="Enter SEcondary Product Image: " required>
-                                <!-- <div class="plus_btn"><i class="fa-solid fa-plus fs-2"></i></div> -->
-                            </div>
+                               
+                            </div> -->
 
+                            <div class="col-12 col-md-8 col-lg-8  col-xl-8 form-group text-uppercase mb-5 plus_btn btn btn-success">Add New Secondary Image <i class="fa-solid fa-plus" style="font-size: 17px;"></i></div>
 
                             <div class="col-12 col-md-8 col-lg-8  col-xl-8 form-group text-uppercase mb-5">
                                 <label class="mb-2" for="description">Description </label>
@@ -192,6 +196,7 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="{{asset('/assets_topmost/js/custom.js')}}"></script>
+    <script src="{{asset('/assets_topmost/js/custom1.js')}}"></script>
 
 
 </body>

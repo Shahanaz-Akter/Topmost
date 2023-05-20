@@ -136,6 +136,7 @@
             <div class="default-section-title default-section-title-middle">
                 <!-- <span>Online Store</span> -->
                 <h3>Your Sourcing Journey</h3>
+
             </div>
             <div class="section-content">
                 <div class="product-slider-area owl-carousel">
@@ -464,6 +465,9 @@
     </div>
     <!-- Copyright Area End -->
 
+
+
+
     <!-- Link of JS files -->
     <script href="/assets_topmost/js/jquery.min.js"></script>
     <script href="/assets_topmost/js/jquery-ui.min.js"></script>
@@ -471,6 +475,7 @@
     <script href="/assets_topmost/js/meanmenu.js"></script>
     <script href="/assets_topmost/js/owl.carousel2.thumbs.js"></script>
     <script href="/assets_topmost/js/owl.carousel.min.js"></script>
+
     <script href="/assets_topmost/js/magnific-popup.min.js"></script>
     <script href="/assets_topmost/js/TweenMax.js"></script>
     <script href="/assets_topmost/js/nice-select.min.js"></script>

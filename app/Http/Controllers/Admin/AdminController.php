@@ -61,41 +61,38 @@ class AdminController extends Controller
     {
 
         // dd($request);
+        // $secondary_image_array = $request->secondary_image;
+        // dd($secondary_image_array);
+
 
         if ($request->primary_image != null) {
 
             //for getting original image name used file()
             $imageName = $request->file('primary_image')->getClientOriginalName(); //getting original image name
             // dd($imageName);
-
             //To move image into public folders folder
             $request->primary_image->move(public_path('/assets_topmost/topmost_img'), $imageName);
-
             $img_url = '/assets_topmost/topmost_img/' . $imageName;
-
             // dd($img_url);
 
+            $secondaryImages = $request->file('secondary_image');
+            $url_array = [];
+            if ($secondaryImages) {
+                foreach ($secondaryImages as $secondaryImage) {
+                    $Se_img1 = $secondaryImage->getClientOriginalName();
+                    $secondaryImage->move(public_path('/assets_topmost/topmost_img'), $Se_img1);
+                    $img_url1 = '/assets_topmost/topmost_img/' . $Se_img1;
+                    // echo ($img_url1);
+                    // Push a value into the array
+                    array_push($url_array, $img_url1);
+                }
+            }
+            // dd($url_array);
 
-            $Se_img1 = $request->file('secondary_image1')->getClientOriginalName(); //getting original image name
-            $request->secondary_image1->move(public_path('/assets_topmost/topmost_img'), $Se_img1);
-            $img_url1 = '/assets_topmost/topmost_img/' . $Se_img1;
-            // dd($img_url1);
-
-            $Se_img2 = $request->file('secondary_image2')->getClientOriginalName(); //getting original image name
-            $request->secondary_image2->move(public_path('/assets_topmost/topmost_img'), $Se_img2);
-            $img_url2 = '/assets_topmost/topmost_img/' . $Se_img2;
-
-            $Se_img3 = $request->file('secondary_image3')->getClientOriginalName(); //getting original image name
-            $request->secondary_image3->move(public_path('/assets_topmost/topmost_img'), $Se_img3);
-            $img_url3 = '/assets_topmost/topmost_img/' . $Se_img3;
-
-
-            //secondary image array
-            $secondary_all_img_url = [$img_url1, $img_url2, $img_url3];
 
             // $Data1 = implode($secondary_all_img_url); 
             //convert the array to string 
-            $jsonData = json_encode($secondary_all_img_url);
+            $jsonData = json_encode($url_array);
             echo  $jsonData;
 
             \App\Products::create([
@@ -137,5 +134,31 @@ class AdminController extends Controller
     public function design_studio()
     {
         return view('UserView.design_studio');
+    }
+
+    public function edit_product($id)
+    {
+        $products = \App\products::where('id', $id)->first();
+        // dd($products);
+        return view('AdminView.edit_product')->with(['products' => $products]);
+    }
+
+    public function post_edit_products(Request $request)
+    {
+        \App\products::where('id', $request->id)->update([
+            'name' => $request->title,
+            'size' => $request->size,
+            'price' => $request->rate,
+            'color' => $request->color,
+            'status' => $request->status,
+            'description' => $request->description,
+        ]);
+
+        return redirect()->back();
+    }
+    public function delete_product($id)
+    {
+        \App\products::where('id', $id)->delete();
+        return redirect()->back();
     }
 }

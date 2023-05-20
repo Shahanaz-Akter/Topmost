@@ -1173,46 +1173,40 @@ $(document).ready(function () {
             });
         }
 
-
-
-
     });
 
-
-
-
-
-    
-
-
-
-
-
-
-
-
-
-
-
 });
 
 
-$(document).ready(function () {
+// $(document).ready(function () {
+//     var container = $('.container');
+//     var parent = $('.secondary_images_parent');
+//     var plus = $('.plus_btn');
 
-$('.plus_btn').click(function(){
+//     plus.on('click', function (event) {
+//         var div = $('<div>').addClass('col-12 col-md-8 col-ld-8 col-xl-8 form-group text-uppercase mb-5');
 
+//         var label = $('<label>').attr({
+//             'for': 'secondary_image',
+//             'class': 'mb-2'
+//         }).text('Secondary Product Image');
 
+//         var input = $('<input>').attr({
+//             'type': 'file',
+//             'class': 'form-control-file',
+//             'id': 'secondary_image',
+//             'name': 'secondary_image',
+//             'placeholder': 'Enter Secondary Product Image',
+//             'required': ''
+//         });
 
+//         div.append(label);
+//         div.append(input);
 
-    
-});
-
-
-
-
-
-
-});
+//         parent.append(div);
+//         console.log(parent);
+//     });
+// });
 
 
 

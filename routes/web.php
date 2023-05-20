@@ -24,7 +24,9 @@ Route::get('/why_us', 'Admin\AdminController@why_us');
 Route::get('/design_studio', 'Admin\AdminController@design_studio');
 
 // products edit/delete
-Route::get('/edit_product', 'Admin\AdminController@edit_product');
-Route::get('/delete_product', 'Admin\AdminController@delete_product');
+Route::get('/edit_product/{id}', 'Admin\AdminController@edit_product');
+Route::get('/post_edit_products', 'Admin\AdminController@post_edit_products');
+
+Route::get('/delete_product/{id}', 'Admin\AdminController@delete_product');
 
 Route::get('/individual_products/{product_id}', 'Admin\AdminController@individual_products');
