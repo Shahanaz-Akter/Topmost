@@ -42,8 +42,12 @@ class AdminController extends Controller
     public function dashboard()
     {
 
-        return view('AdminView.dashboard');
+        $product_list = \App\products::all();
+        // dd($product_list);
+        return view('AdminView.dashboard')->with(['product_list' => $product_list]);
     }
+
+
 
     public function post_dashboard()
     {
@@ -111,16 +115,11 @@ class AdminController extends Controller
     }
 
 
+    public function individual_products($product_id)
+    {
 
-
-
-
-
-
-
-
-
-
+        return view('AdminView.individual_products')->with(['product_id' => $product_id]);
+    }
 
 
 

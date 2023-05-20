@@ -27,7 +27,7 @@
         </div>
 
         <div class="" style="padding: 15px 20px;">
-            <a href="{{url('/index')}}"><button class="btn btn-success mt-2">Logout</button></a>
+            <a href="{{url('/logout')}}"><button class="btn btn-success mt-2">Logout</button></a>
         </div>
     </div>
 
@@ -44,6 +44,7 @@
                     <th scope="col">Color</th>
                     <th scope="col">Size</th>
                     <th scope="col">Status</th>
+                    <th scope="col">Product Status</th>
                     <th scope="col">Primary image</th>
                     <th scope="col">Secondary image</th>
                     <th scope="col">Description</th>
@@ -53,21 +54,38 @@
             </thead>
             <tbody>
 
+                <!-- The purpose of a product description is to supply customers with important information about the features and benefits of the product so they’re compelled to buy. However, entrepreneurs and marketers alike are susceptible to a common mistake that comes up when writing product descriptions. Even professional copywriters make it sometimes: writing product descriptions that simply describe your products. -->
+
+                @foreach ($product_list as $products)
 
                 <tr>
                     <th scope="row">1</th>
-                    <td>Shirt</td>
-                    <td>1230</td>
-                    <td>Red</td>
-                    <td>xxL</td>
-                    <td>In stock</td>
-                    <td><img src="/assets_topmost/images/about/about-1.png" alt="" style="height: 100%; width:100%;"></td>
-                    <td><img src="/assets_topmost/images/about/about-1.png" alt="" style="height: 100%; width:100%;"></td>
-                    <td>The purpose of a product description is to supply customers with important information about the features and benefits of the product so they’re compelled to buy. However, entrepreneurs and marketers alike are susceptible to a common mistake that comes up when writing product descriptions. Even professional copywriters make it sometimes: writing product descriptions that simply describe your products.</td>
+                    <td>{{$products->name}}</td>
+                    <td>{{$products->price}}</td>
+                    <td>{{$products->color}}</td>
+                    <td>{{$products->size}}</td>
+                    <td>{{$products->status}}</td>
+                    <td>{{$products->product_status}}</td>
+                    <td><img src="{{$products->primary_img}}" alt="" style="height: 150px;"></td>
 
-                    <td> <a href="{{url('/edit_product')}}"><i class="fa-solid fa-pen-to-square ms-2"></i></a> </td>
-                    <td> <a href="{{url('/delete_product')}}"><i class="fa-solid fa-trash-can"></i></a> </td>
+                    @php
+                    $sec_img_list= $products->secondary_img;
+                    $secondary_images= json_decode($sec_img_list);
+                    @endphp
+
+                    <td>
+                        <a href="{{url('/individual_products/'.$products->id)}}"> <button class="btn btn-success">Secondary Image List</button> </a>
+                    </td>
+
+                    <td>{{$products->description}}</td>
+
+                    <td> <a href="{{url('/edit_product/'.$products->id)}}"><i class="fa-solid fa-pen-to-square ms-2"></i></a> </td>
+                    <td> <a href="{{url('/delete_product/'.$products->id)}}"><i class="fa-solid fa-trash-can"></i></a> </td>
                 </tr>
+
+                @endforeach
+
+
 
 
 
@@ -117,9 +135,12 @@
                             </div>
                             <div class="col-12 col-md-8 col-lg-8  col-xl-8 form-group text-uppercase mb-5">
                                 <label class="mb-2" for="status">Status:</label>
-                                <input type="text" class="form-control" id="status" name="status" placeholder="Enter Product Status: " required>
+                                <input type="text" class="form-control" id="status" name="status" placeholder="Enter Status: " required>
                             </div>
-
+                            <div class="col-12 col-md-8 col-lg-8  col-xl-8 form-group text-uppercase mb-5">
+                                <label class="mb-2" for="product_status">Product Status:</label>
+                                <input type="text" class="form-control" id="product_status" name="product_status" placeholder="Enter Product Status: " required>
+                            </div>
 
                             <div class="col-12 col-md-8 col-lg-8  col-xl-8 form-group text-uppercase mb-5">
                                 <label class="form-label">Select Product Status</label>
