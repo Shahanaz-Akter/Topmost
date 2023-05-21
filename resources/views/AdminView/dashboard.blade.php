@@ -155,23 +155,15 @@
                                 <input type="file" class="form-control-file" id="primary_image" name="primary_image" placeholder="Enter primary Product Image: " required>
                             </div>
 
-                            
+
                             <div class="col-12 col-md-8 col-lg-8  col-xl-8 form-group text-uppercase mb-5">
                                 <label class="mb-2" for="secondary_image">Secondary Product Image</label>
-                                <input type="file" class="form-control-file" id="secondary_image" name="secondary_image" placeholder="Enter SEcondary Product Image: " required>
+                                <input type="file" class="form-control-file" id="secondary_image" name="secondary_image[]" placeholder="Enter SEcondary Product Image: " required>
 
                             </div>
+                            <section class="secondary_images_parent">
 
-                            <!-- <div class="col-12 col-md-8 col-lg-8  col-xl-8 form-group text-uppercase mb-5">
-                                <label class="mb-2" for="secondary_image2">Secondary Product Image</label>
-                                <input type="file" class="form-control-file" id="secondary_image2" name="secondary_image2" placeholder="Enter SEcondary Product Image: " required>
-
-                            </div>
-                            <div class="col-12 col-md-8 col-lg-8  col-xl-8 form-group text-uppercase mb-5">
-                                <label class="mb-2" for="secondary_image3">Secondary Product Image</label>
-                                <input type="file" class="form-control-file" id="secondary_image3" name="secondary_image3" placeholder="Enter SEcondary Product Image: " required>
-                               
-                            </div> -->
+                            </section>
 
                             <div class="col-12 col-md-8 col-lg-8  col-xl-8 form-group text-uppercase mb-5 plus_btn btn btn-success">Add New Secondary Image <i class="fa-solid fa-plus" style="font-size: 17px;"></i></div>
 

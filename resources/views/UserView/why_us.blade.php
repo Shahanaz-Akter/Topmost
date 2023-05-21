@@ -106,7 +106,7 @@
                         <div class="default-section-title">
                             <h4 class="text-success mb-4">REINVENT the way you buy your clothes.</h4>
                             <h3 style="">With topmostsourcing, you can launch your next collection
-                                for 25% less money and 100% faster.</h3>
+                                for 25% reduced price and 100% faster.</h3>
                             <!-- <p>Source from our trusted manufacturers and suppliers in Bangladesh.</p> -->
                         </div>
 
@@ -244,14 +244,14 @@
                         <div class="default-section-title">
                             <!-- <span></span> -->
                             <h3>About Us</h3>
-                            <p style="font-size: 1.1rem;">Topmost Sourcing is committed to helping our customers succeed
+                            <p style="font-size: 1.1rem;">Topmost Sourcing is committed to helping our Clients succeed
                                 by sourcing the highest
                                 quality products at the lowest possible cost. We are dedicated to provide exceptional
-                                Customer service and innovative solutions to our Customers.We strive to be the premier
-                                buying house in the market, providing our Customers with the best value for their money,
+                                Clients service and innovative solutions to our Clients.We strive to be the premier
+                                buying house in the market, providing our Clients with the best value for their money,
                                 and creating long-term relationships with our suppliers. We believe in being transparent
                                 and honest in all of our dealings, and we are committed to deliver a superior purchasing
-                                experience to our Customers.</p>
+                                experience to our Clients.</p>
                         </div>
 
                     </div>
@@ -467,26 +467,24 @@
 
 
 
-
     <!-- Link of JS files -->
-    <script href="/assets_topmost/js/jquery.min.js"></script>
-    <script href="/assets_topmost/js/jquery-ui.min.js"></script>
-    <script href="/assets_topmost/js/bootstrap.bundle.min.js"></script>
-    <script href="/assets_topmost/js/meanmenu.js"></script>
-    <script href="/assets_topmost/js/owl.carousel2.thumbs.js"></script>
-    <script href="/assets_topmost/js/owl.carousel.min.js"></script>
-
-    <script href="/assets_topmost/js/magnific-popup.min.js"></script>
-    <script href="/assets_topmost/js/TweenMax.js"></script>
-    <script href="/assets_topmost/js/nice-select.min.js"></script>
-    <script href="/assets_topmost/js/form-validator.min.js"></script>
-    <script href="/assets_topmost/js/contact-form-script.js"></script>
-    <script href="/assets_topmost/js/ajaxchimp.min.js"></script>
-    <script href="/assets_topmost/js/appear.min.js"></script>
-    <script href="/assets_topmost/js/tilt.js"></script>
-    <script href="/assets_topmost/js/barfiller.js"></script>
-    <script href="/assets_topmost/js/odometer.min.js"></script>
-    <script href="/assets_topmost/js/custom.js"></script>
+    <script src="{{asset('assets_topmost/js/jquery.min.js')}}"></script>
+    <script src="{{asset('assets_topmost/js/jquery-ui.min.js')}}"></script>
+    <script src="assets_topmost/js/bootstrap.bundle.min.js"></script>
+    <script src="assets_topmost/js/meanmenu.js"></script>
+    <script src="assets_topmost/js/owl.carousel2.thumbs.js"></script>
+    <script src="assets_topmost/js/owl.carousel.min.js"></script>
+    <script src="assets_topmost/js/magnific-popup.min.js"></script>
+    <script src="assets_topmost/js/TweenMax.js"></script>
+    <script src="assets_topmost/js/nice-select.min.js"></script>
+    <script src="assets_topmost/js/form-validator.min.js"></script>
+    <script src="assets_topmost/js/contact-form-script.js"></script>
+    <script src="assets_topmost/js/ajaxchimp.min.js"></script>
+    <script src="assets_topmost/js/appear.min.js"></script>
+    <script src="assets_topmost/js/tilt.js"></script>
+    <script src="assets_topmost/js/barfiller.js"></script>
+    <script src="assets_topmost/js/odometer.min.js"></script>
+    <script src="assets_topmost/js/custom.js"></script>
 </body>
 
 </html>

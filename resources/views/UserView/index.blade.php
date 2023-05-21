@@ -328,6 +328,9 @@
   </div>
   <!-- Faq Area End -->
 
+
+
+
   <!-- product Area Start -->
   <div id="Product" class="product ptb-100">
     <div class="container">
@@ -337,66 +340,24 @@
       </div>
       <div class="section-content">
         <div class="product-slider-area owl-carousel">
+
+          @php
+          $all_products= \App\products::all();
+          @endphp
+
+          @foreach ($all_products as $all)
           <div class="product-card slider-card-margin">
             <div class="product-card-img">
-              <img src="assets_topmost/images/fashion_prod/p1.png" alt="image" />
+              <img src="{{$all->primary_img}}" alt="image" />
             </div>
             <div class="product-card-text-area">
-              <h4>Original Jack & Jones Man's Jogger</h4>
-              <!-- <p> $50.00</p> -->
-              <!-- <a class="default-button-3" href="cart.html"><span>View Product</span></a> -->
+              <h4>{{$all->name}}</h4>
+
             </div>
           </div>
-          <div class="product-card slider-card-margin">
-            <div class="product-card-img">
-              <img src="assets_topmost/images/fashion_prod/p2.png" alt="image" />
-            </div>
-            <div class="product-card-text-area">
-              <h4> Ladies Cardigan</h4>
-              <!-- <p>$25.00</p> -->
-              <!-- <a class="default-button-3" href="cart.html"><span>View Product</span></a> -->
-            </div>
-          </div>
-          <div class="product-card slider-card-margin">
-            <div class="product-card-img">
-              <img src="assets_topmost/images/fashion_prod/p4.png" alt="image" />
-            </div>
-            <div class="product-card-text-area">
-              <h4>Boys Original Joggers</h4>
-              <!-- <p>$50.00</p> -->
-              <!-- <a class="default-button-3" href="cart.html"><span>View Product</span></a> -->
-            </div>
-          </div>
-          <div class="product-card slider-card-margin">
-            <div class="product-card-img">
-              <img src="assets_topmost/images/fashion_prod/p5.png" alt="image" />
-            </div>
-            <div class="product-card-text-area">
-              <h4>Men's Denim Pant</h4>
-              <!-- <p>$85.00</p> -->
-              <!-- <a class="default-button-3" href="cart.html"><span>View Product</span></a> -->
-            </div>
-          </div>
-          <div class="product-card slider-card-margin">
-            <div class="product-card-img">
-              <img src="assets_topmost/images/fashion_prod/p7.png" alt="image" />
-            </div>
-            <div class="product-card-text-area">
-              <h4>Men's Original Original Sports tshirt</h4>
-              <!-- <p>$20.00</p> -->
-              <!-- <a class="default-button-3" href="cart.html"><span>View Product</span></a> -->
-            </div>
-          </div>
-          <div class="product-card slider-card-margin">
-            <div class="product-card-img">
-              <img src="assets_topmost/images/fashion_prod/p8.png" alt="image" />
-            </div>
-            <div class="product-card-text-area">
-              <h4>Ladies Original Viscose Tops</h4>
-              <!-- <p>$120.00</p> -->
-              <!-- <a class="default-button-3" href="cart.html"><span>View Product</span></a> -->
-            </div>
-          </div>
+          @endforeach
+
+
         </div>
       </div>
     </div>
@@ -716,23 +677,23 @@
   <!-- Copyright Area End -->
 
   <!-- Link of JS files -->
-  <script src="assets/js/jquery.min.js"></script>
-  <script src="assets/js/jquery-ui.min.js"></script>
-  <script src="assets/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/js/meanmenu.js"></script>
-  <script src="assets/js/owl.carousel2.thumbs.js"></script>
-  <script src="assets/js/owl.carousel.min.js"></script>
-  <script src="assets/js/magnific-popup.min.js"></script>
-  <script src="assets/js/TweenMax.js"></script>
-  <script src="assets/js/nice-select.min.js"></script>
-  <script src="assets/js/form-validator.min.js"></script>
-  <script src="assets/js/contact-form-script.js"></script>
-  <script src="assets/js/ajaxchimp.min.js"></script>
-  <script src="assets/js/appear.min.js"></script>
-  <script src="assets/js/tilt.js"></script>
-  <script src="assets/js/barfiller.js"></script>
-  <script src="assets/js/odometer.min.js"></script>
-  <script src="assets/js/custom.js"></script>
+  <script src="{{asset('assets_topmost/js/jquery.min.js')}}"></script>
+  <script src="{{asset('assets_topmost/js/jquery-ui.min.js')}}"></script>
+  <script src="assets_topmost/js/bootstrap.bundle.min.js"></script>
+  <script src="assets_topmost/js/meanmenu.js"></script>
+  <script src="assets_topmost/js/owl.carousel2.thumbs.js"></script>
+  <script src="assets_topmost/js/owl.carousel.min.js"></script>
+  <script src="assets_topmost/js/magnific-popup.min.js"></script>
+  <script src="assets_topmost/js/TweenMax.js"></script>
+  <script src="assets_topmost/js/nice-select.min.js"></script>
+  <script src="assets_topmost/js/form-validator.min.js"></script>
+  <script src="assets_topmost/js/contact-form-script.js"></script>
+  <script src="assets_topmost/js/ajaxchimp.min.js"></script>
+  <script src="assets_topmost/js/appear.min.js"></script>
+  <script src="assets_topmost/js/tilt.js"></script>
+  <script src="assets_topmost/js/barfiller.js"></script>
+  <script src="assets_topmost/js/odometer.min.js"></script>
+  <script src="assets_topmost/js/custom.js"></script>
 </body>
 
 </html>

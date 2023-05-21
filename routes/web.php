@@ -8,7 +8,8 @@ use Illuminate\Support\Facades\Route;
 
 
 // admin login/logpout
-Route::get('/', 'Admin\AdminController@login');
+Route::get('/', 'Admin\AdminController@index');
+Route::get('/admin', 'Admin\AdminController@login');
 Route::get('/logout', 'Admin\AdminController@logout');
 
 Route::post('/post_admin_form', 'Admin\AdminController@post_admin_form');
@@ -25,7 +26,7 @@ Route::get('/design_studio', 'Admin\AdminController@design_studio');
 
 // products edit/delete
 Route::get('/edit_product/{id}', 'Admin\AdminController@edit_product');
-Route::get('/post_edit_products', 'Admin\AdminController@post_edit_products');
+Route::post('/post_edit_products', 'Admin\AdminController@post_edit_products');
 
 Route::get('/delete_product/{id}', 'Admin\AdminController@delete_product');
 

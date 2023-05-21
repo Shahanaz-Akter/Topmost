@@ -145,14 +145,105 @@ class AdminController extends Controller
 
     public function post_edit_products(Request $request)
     {
-        \App\products::where('id', $request->id)->update([
-            'name' => $request->title,
-            'size' => $request->size,
-            'price' => $request->rate,
-            'color' => $request->color,
-            'status' => $request->status,
-            'description' => $request->description,
-        ]);
+        // dd($request->id);
+
+        // check for primary Image
+
+        // if ($request->primary_image != null) {
+        //     //for getting original image name used file()
+        //     $imageName2 = $request->file('primary_image')->getClientOriginalName(); //getting original image name
+        //     //To move image into public folders folder
+        //     $request->primary_image->move(public_path('/assets_topmost/topmost_img'), $imageName2);
+        //     $img_url1 = '/assets_topmost/topmost_img/' . $imageName2;
+        // }
+
+
+        // $secondaryImages2 = $request->file('secondary_image');
+        // $url_array2 = [];
+        // if ($secondaryImages2) {
+        //     foreach ($secondaryImages2 as $secondaryImage) {
+        //         $Se_img2 = $secondaryImage->getClientOriginalName();
+        //         $secondaryImage->move(public_path('/assets_topmost/topmost_img'), $Se_img2);
+        //         $img_url2 = '/assets_topmost/topmost_img/' . $Se_img2;
+        //         // echo ($img_url1);
+
+        //         // Push a value into the array
+        //         array_push($url_array2, $img_url2);
+        //     }
+        //     $jsonData1 = json_encode($url_array2);
+        //     echo  $jsonData1;
+        // }
+
+        // $primaryImages != null
+
+
+
+        $secondaryImages2 = $request->file('secondary_image');
+        // dd($secondaryImages2);
+        $url_array2 = [];
+
+
+
+        $primaryImages = $request->file('primary_image');
+        // dd($primaryImages);
+
+        if ($primaryImages) {
+            //for getting original image name used file()
+            $imageName2 = $request->file('primary_image')->getClientOriginalName(); //getting original image name
+            //To move image into public folders folder
+            $request->primary_image->move(public_path('/assets_topmost/topmost_img'), $imageName2);
+            $img_url1 = '/assets_topmost/topmost_img/' . $imageName2;
+
+
+            \App\products::where('id', $request->id)->update([
+                'name' => $request->title,
+                'size' => $request->size,
+                'price' => $request->rate,
+                'color' => $request->color,
+                'status' => $request->status,
+                'product_status' => $request->product_status,
+                'primary_img' => $img_url1,
+                'description' => $request->description,
+            ]);
+        } else if ($secondaryImages2) {
+
+            foreach ($secondaryImages2 as $secondaryImage) {
+                $Se_img2 = $secondaryImage->getClientOriginalName();
+                $secondaryImage->move(public_path('/assets_topmost/topmost_img'), $Se_img2);
+                $img_url2 = '/assets_topmost/topmost_img/' . $Se_img2;
+                // echo ($img_url1);
+
+                // Push a value into the array
+                array_push($url_array2, $img_url2);
+            }
+
+            $jsonData1 = json_encode($url_array2);
+            // echo  $jsonData1;
+            // dd($jsonData1);
+
+            \App\products::where('id', $request->id)->update([
+                'name' => $request->title,
+                'size' => $request->size,
+                'price' => $request->rate,
+                'color' => $request->color,
+                'status' => $request->status,
+                'product_status' => $request->product_status,
+                'secondary_img' => $jsonData1,
+                'description' => $request->description,
+            ]);
+        } else {
+
+            \App\products::where('id', $request->id)->update([
+                'name' => $request->title,
+                'size' => $request->size,
+                'price' => $request->rate,
+                'color' => $request->color,
+                'status' => $request->status,
+                'product_status' => $request->product_status,
+                'description' => $request->description,
+            ]);
+        }
+
 
         return redirect()->back();
     }
