@@ -102,14 +102,11 @@
             <div class="row align-items-center">
                 <div class="col-lg-6 order-lg-1 order-2 pb-1">
                     <div class="why-we-text-area pr-20 mt-3">
-
                         <div class="default-section-title">
                             <h4 class="text-success mb-4">REINVENT the way you buy your clothes.</h4>
-                            <h3 style="">With topmostsourcing, you can launch your next collection
-                                for 25% reduced price and 100% faster.</h3>
+                            <h3 style="">With topmostsourcing, you may launch your next collection at a lower cost and 100 percent faster.</h3>
                             <!-- <p>Source from our trusted manufacturers and suppliers in Bangladesh.</p> -->
                         </div>
-
                         <!-- move text area to top for small devices -->
                     </div>
                 </div>
@@ -356,15 +353,19 @@
                                     <li>
                                         <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
                                     </li>
+
                                     <li>
-                                        <a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
+                                        <a href="https://www.pinterest.com/" target="_blank"><i class="fab fa-linkedin"></i></i></a>
                                     </li>
+
                                     <li>
                                         <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
                                     </li>
+
                                     <li>
-                                        <a href="https://www.pinterest.com/" target="_blank"><i class="fab fa-pinterest-p"></i></a>
+                                        <a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
                                     </li>
+
                                 </ul>
                             </div>
                         </div>

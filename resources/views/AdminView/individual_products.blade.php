@@ -14,7 +14,7 @@
 <body>
 
     @php
-    $products = \App\Products::where('id',$product_id)->first();
+    $products = \App\Product::where('id',$product_id)->first();
     $sec_products= $products->secondary_img;
     $sec_all_array_products= json_decode($sec_products);
     @endphp

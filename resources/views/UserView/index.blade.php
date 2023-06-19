@@ -342,7 +342,7 @@
         <div class="product-slider-area owl-carousel">
 
           @php
-          $all_products= \App\products::all();
+          $all_products= \App\Product::all();
           @endphp
 
           @foreach ($all_products as $all)
@@ -567,15 +567,19 @@
                   <li>
                     <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
                   </li>
-                  <li>
-                    <a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
+                   
+                   <li>
+                    <a href="https://bd.linkedin.com/in/sajibur-rahman-23bb59141" target="_blank"><i class="fab fa-linkedin"></i></i></a>
                   </li>
+
                   <li>
                     <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
                   </li>
+                 
                   <li>
-                    <a href="https://www.pinterest.com/" target="_blank"><i class="fab fa-pinterest-p"></i></a>
+                    <a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
                   </li>
+
                 </ul>
               </div>
             </div>

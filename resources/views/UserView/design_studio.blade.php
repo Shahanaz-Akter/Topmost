@@ -169,7 +169,7 @@
 
                     @php
 
-                    $design_products=\App\products::where('product_status', 'design')->get();
+                    $design_products=\App\Product::where('product_status', 'design')->get();
 
 
                     @endphp
@@ -401,7 +401,7 @@
 
                     @php
 
-                    $ready_products=\App\products::where('product_status', 'ready')->get();
+                    $ready_products=\App\Product::where('product_status', 'ready')->get();
 
 
                     @endphp
@@ -640,15 +640,19 @@
                                     <li>
                                         <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook-f"></i></a>
                                     </li>
+
                                     <li>
-                                        <a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
+                                        <a href="https://bd.linkedin.com/in/sajibur-rahman-23bb59141" target="_blank"><i class="fab fa-linkedin"></i></i></a>
                                     </li>
+
                                     <li>
                                         <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
                                     </li>
+
                                     <li>
-                                        <a href="https://www.pinterest.com/" target="_blank"><i class="fab fa-pinterest-p"></i></a>
+                                        <a href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
                                     </li>
+
                                 </ul>
                             </div>
                         </div>

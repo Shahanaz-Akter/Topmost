@@ -42,7 +42,7 @@ class AdminController extends Controller
     public function dashboard()
     {
 
-        $product_list = \App\products::all();
+        $product_list = \App\Product::all();
         // dd($product_list);
         return view('AdminView.dashboard')->with(['product_list' => $product_list]);
     }
@@ -95,7 +95,7 @@ class AdminController extends Controller
             $jsonData = json_encode($url_array);
             echo  $jsonData;
 
-            \App\Products::create([
+            \App\Product::create([
                 'name' => $request->name,
                 'price' => $request->price,
                 'size' => $request->size,
@@ -138,7 +138,7 @@ class AdminController extends Controller
 
     public function edit_product($id)
     {
-        $products = \App\products::where('id', $id)->first();
+        $products = \App\Product::where('id', $id)->first();
         // dd($products);
         return view('AdminView.edit_product')->with(['products' => $products]);
     }
@@ -195,7 +195,7 @@ class AdminController extends Controller
             $img_url1 = '/assets_topmost/topmost_img/' . $imageName2;
 
 
-            \App\products::where('id', $request->id)->update([
+            \App\Product::where('id', $request->id)->update([
                 'name' => $request->title,
                 'size' => $request->size,
                 'price' => $request->rate,
@@ -221,7 +221,7 @@ class AdminController extends Controller
             // echo  $jsonData1;
             // dd($jsonData1);
 
-            \App\products::where('id', $request->id)->update([
+            \App\Product::where('id', $request->id)->update([
                 'name' => $request->title,
                 'size' => $request->size,
                 'price' => $request->rate,
@@ -233,7 +233,7 @@ class AdminController extends Controller
             ]);
         } else {
 
-            \App\products::where('id', $request->id)->update([
+            \App\Product::where('id', $request->id)->update([
                 'name' => $request->title,
                 'size' => $request->size,
                 'price' => $request->rate,
@@ -249,7 +249,7 @@ class AdminController extends Controller
     }
     public function delete_product($id)
     {
-        \App\products::where('id', $id)->delete();
+        \App\Product::where('id', $id)->delete();
         return redirect()->back();
     }
 }
